@@ -9,8 +9,7 @@
 
   <style>
     :root {
-      --bg: linear-gradient(180deg, #1454e9 0%, #6692f1 100%);
-      --accent: #6A42FF;
+      --accent: #5f2eed; /* Tolaab Purple */
       --muted: rgba(255,255,255,0.72);
       --radius: 14px;
     }
@@ -18,21 +17,45 @@
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
-      background: var(--bg);
+      background-color: #eceef5; /* soft purple background */
       color: #f5f6fa;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px;
       min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Floating Circles */
+    .circle { position: absolute; border-radius: 50%; background: var(--accent); animation: float 14s ease-in-out infinite; }
+    @keyframes float {
+      0%,100% { transform: translateY(0px) translateX(0px) scale(1); }
+      50% { transform: translateY(-40px) translateX(25px) scale(1.05); }
+    }
+    .circle1 { width: 400px; height: 400px; top: -180px; left: -150px; opacity: 0.3; animation-delay: 0s; }
+    .circle2 { width: 300px; height: 300px; bottom: -120px; right: -120px; opacity: 0.4; animation-delay: 1s; }
+    .circle3 { width: 220px; height: 220px; top: 50%; left: -120px; opacity: 0.25; animation-delay: 2s; }
+    .circle4 { width: 180px; height: 180px; top: 30%; right: 10%; opacity: 0.35; animation-delay: 3s; }
+    .circle5 { width: 260px; height: 260px; bottom: 20%; left: 10%; opacity: 0.3; animation-delay: 4s; }
+    .circle6 { width: 150px; height: 150px; bottom: 10%; right: 25%; opacity: 0.45; animation-delay: 5s; }
+    .circle7 { width: 100px; height: 100px; top: 15%; left: 35%; opacity: 0.25; animation-delay: 6s; }
+    .circle8 { width: 180px; height: 180px; bottom: 40%; right: 45%; opacity: 0.3; animation-delay: 7s; }
+    .circle9 { width: 240px; height: 240px; top: 75%; left: 55%; opacity: 0.4; animation-delay: 8s; }
+    .circle10 { width: 120px; height: 120px; top: 10%; right: 35%; opacity: 0.25; animation-delay: 9s; }
+
+    /* Form Card */
     .form-card {
       width: 100%;
       max-width: 720px;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.9);
       border-radius: var(--radius);
       padding: 48px 40px;
-      box-shadow: 0 8px 40px rgba(78, 113, 186, 0.55);
+      box-shadow: 0 10px 50px rgba(95, 46, 237, 0.25);
+      position: relative;
+      z-index: 10;
+      backdrop-filter: blur(12px);
     }
     .logo {
       width: 80px;
@@ -40,60 +63,19 @@
       margin: 0 auto 24px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 6px 20px rgba(106, 66, 255, 0.25);
+      box-shadow: 0 6px 20px rgba(95, 46, 237, 0.25);
     }
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    h1 {
-      text-align: center;
-      font-size: 26px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    p {
-      text-align: center;
-      font-size: 15px;
-      color: var(--muted);
-      margin-bottom: 30px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    label {
-      font-weight: 600;
-      font-size: 15px;
-      margin-bottom: 6px;
-      display: block;
-    }
-    input, select {
-      width: 100%;
-      padding: 12px 14px;
-      border: none;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      font-size: 15px;
-      outline: none;
-    }
-    input::placeholder {
-      color: rgba(255,255,255,0.55);
-    }
-    input[type="file"] {
-      background: none;
-    }
-    .map-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 8px;
-    }
+    .logo img { width: 100%; height: 100%; object-fit: cover; }
+    h1 { text-align: center; font-size: 26px; margin-bottom: 10px; font-weight: 700; color: var(--accent); }
+    p { text-align: center; font-size: 15px; color: #757575; margin-bottom: 30px; }
+    form { display: flex; flex-direction: column; gap: 20px; }
+    label { font-weight: 600; font-size: 15px; margin-bottom: 6px; display: block; color: #292d32; }
+    input, select { width: 100%; padding: 12px 14px; border: none; border-radius: 10px; background: #f9f9fb; color: #333; font-size: 15px; outline: none; }
+    input::placeholder { color: #757575; }
+    input[type="file"] { background: none; }
+    .map-links { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
     .btn {
-      background: linear-gradient(90deg, var(--accent), #2b18b8);
+      background: linear-gradient(90deg, var(--accent), #310d9b);
       color: white;
       font-size: 16px;
       font-weight: 600;
@@ -103,20 +85,25 @@
       cursor: pointer;
       transition: transform 0.15s;
       margin-top: 10px;
-      box-shadow: 0 10px 30px rgba(42,15,150,0.3);
+      box-shadow: 0 10px 30px rgba(95, 46, 237, 0.3);
     }
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-    .footer-note {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--muted);
-    }
+    .btn:hover { transform: translateY(-2px); }
+    .footer-note { text-align: center; margin-top: 20px; font-size: 14px; color: #757575; }
   </style>
 </head>
 <body>
+
+  <!-- Floating Circles -->
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <div class="circle circle4"></div>
+  <div class="circle circle5"></div>
+  <div class="circle circle6"></div>
+  <div class="circle circle7"></div>
+  <div class="circle circle8"></div>
+  <div class="circle circle9"></div>
+  <div class="circle circle10"></div>
 
   <div class="form-card">
     <div class="logo">
