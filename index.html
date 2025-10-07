@@ -44,6 +44,8 @@
     .circle8 { width: 180px; height: 180px; bottom: 40%; right: 45%; opacity: 0.3; animation-delay: 7s; }
     .circle9 { width: 240px; height: 240px; top: 75%; left: 55%; opacity: 0.4; animation-delay: 8s; }
     .circle10 { width: 120px; height: 120px; top: 10%; right: 35%; opacity: 0.25; animation-delay: 9s; }
+    .circle11 { width: 200px; height: 200px; top: 60%; right: 5%; opacity: 0.3; animation-delay: 10s; }
+    .circle12 { width: 160px; height: 160px; bottom: 15%; left: 40%; opacity: 0.35; animation-delay: 11s; }
 
     /* Form Card */
     .form-card {
@@ -89,6 +91,13 @@
     }
     .btn:hover { transform: translateY(-2px); }
     .footer-note { text-align: center; margin-top: 20px; font-size: 14px; color: #757575; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body { padding: 20px; }
+      .form-card { padding: 32px 24px; }
+      h1 { font-size: 22px; }
+    }
   </style>
 </head>
 <body>
@@ -104,6 +113,8 @@
   <div class="circle circle8"></div>
   <div class="circle circle9"></div>
   <div class="circle circle10"></div>
+  <div class="circle circle11"></div>
+  <div class="circle circle12"></div>
 
   <div class="form-card">
     <div class="logo">
@@ -126,6 +137,12 @@
       <div>
         <label for="branches">Number of Branches</label>
         <input type="number" id="branches" name="branches" min="1" placeholder="e.g. 3" required>
+      </div>
+
+      <!-- New Discount Field -->
+      <div>
+        <label for="discount">Discount Offered to Support Students (%)</label>
+        <input type="number" id="discount" name="discount" min="0" max="100" placeholder="e.g. 15" required>
       </div>
 
       <div id="mapLinksContainer"></div>
@@ -178,11 +195,9 @@
     document.getElementById('partnerForm').addEventListener('submit', (e) => {
       const pwd = document.getElementById('password').value;
       const confirmPwd = document.getElementById('confirmPassword').value;
-
       if (pwd !== confirmPwd) {
         e.preventDefault();
         alert('Passwords do not match. Please recheck.');
-        return;
       }
     });
   </script>
