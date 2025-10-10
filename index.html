@@ -17,7 +17,7 @@
     body {
       margin: 0;
       font-family: "Inter", sans-serif;
-      background-color: #eceef5; /* soft purple background */
+      background-color: #eceef5; /* fallback color */
       color: #f5f6fa;
       display: flex;
       align-items: center;
@@ -28,24 +28,17 @@
       overflow-x: hidden;
     }
 
-    /* Floating Circles */
-    .circle { position: absolute; border-radius: 50%; background: var(--accent); animation: float 14s ease-in-out infinite; }
-    @keyframes float {
-      0%,100% { transform: translateY(0px) translateX(0px) scale(1); }
-      50% { transform: translateY(-40px) translateX(25px) scale(1.05); }
+    /* Background Video */
+    .bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.35;
+      filter: blur(2px);
     }
-    .circle1 { width: 400px; height: 400px; top: -180px; left: -150px; opacity: 0.3; animation-delay: 0s; }
-    .circle2 { width: 300px; height: 300px; bottom: -120px; right: -120px; opacity: 0.4; animation-delay: 1s; }
-    .circle3 { width: 220px; height: 220px; top: 50%; left: -120px; opacity: 0.25; animation-delay: 2s; }
-    .circle4 { width: 180px; height: 180px; top: 30%; right: 10%; opacity: 0.35; animation-delay: 3s; }
-    .circle5 { width: 260px; height: 260px; bottom: 20%; left: 10%; opacity: 0.3; animation-delay: 4s; }
-    .circle6 { width: 150px; height: 150px; bottom: 10%; right: 25%; opacity: 0.45; animation-delay: 5s; }
-    .circle7 { width: 100px; height: 100px; top: 15%; left: 35%; opacity: 0.25; animation-delay: 6s; }
-    .circle8 { width: 180px; height: 180px; bottom: 40%; right: 45%; opacity: 0.3; animation-delay: 7s; }
-    .circle9 { width: 240px; height: 240px; top: 75%; left: 55%; opacity: 0.4; animation-delay: 8s; }
-    .circle10 { width: 120px; height: 120px; top: 10%; right: 35%; opacity: 0.25; animation-delay: 9s; }
-    .circle11 { width: 200px; height: 200px; top: 60%; right: 5%; opacity: 0.3; animation-delay: 10s; }
-    .circle12 { width: 160px; height: 160px; bottom: 15%; left: 40%; opacity: 0.35; animation-delay: 11s; }
 
     /* Form Card */
     .form-card {
@@ -102,19 +95,11 @@
 </head>
 <body>
 
-  <!-- Floating Circles -->
-  <div class="circle circle1"></div>
-  <div class="circle circle2"></div>
-  <div class="circle circle3"></div>
-  <div class="circle circle4"></div>
-  <div class="circle circle5"></div>
-  <div class="circle circle6"></div>
-  <div class="circle circle7"></div>
-  <div class="circle circle8"></div>
-  <div class="circle circle9"></div>
-  <div class="circle circle10"></div>
-  <div class="circle circle11"></div>
-  <div class="circle circle12"></div>
+  <!-- 🌌 Background Video -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="https://www.dropbox.com/scl/fi/4onunbre7r0fi44ex8mbc/Introduction.mp4?rlkey=1v56pxpvw8nadepu415jyni0d&dl=1" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
   <div class="form-card">
     <div class="logo">
